@@ -2,12 +2,14 @@ package com.example.buylist.view
 
 import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.Spacer
+import androidx.compose.foundation.layout.WindowInsets
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
-import androidx.compose.foundation.layout.navigationBarsPadding
+import androidx.compose.foundation.layout.navigationBars
 import androidx.compose.foundation.layout.padding
-import androidx.compose.foundation.layout.systemBarsPadding
+import androidx.compose.foundation.layout.statusBarsPadding
+import androidx.compose.foundation.layout.windowInsetsPadding
 import androidx.compose.foundation.layout.wrapContentWidth
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.text.KeyboardOptions
@@ -49,9 +51,7 @@ fun TelaProdutos(viewModel: ProdutoViewModel = hiltViewModel(), onGerenciar: () 
     val total = produtos.sumOf { it.preco * it.quantidade }
 
     Scaffold(
-        modifier = Modifier
-            .fillMaxSize()
-            .systemBarsPadding(), topBar = {
+        topBar = {
             CenterAlignedTopAppBar(
                 title = {
                     Text(
@@ -61,9 +61,15 @@ fun TelaProdutos(viewModel: ProdutoViewModel = hiltViewModel(), onGerenciar: () 
                     )
                 }, colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.primary
-                )
+                ),
+                modifier = Modifier.fillMaxWidth()
             )
-        }) { padding ->
+
+        },
+        containerColor = MaterialTheme.colorScheme.onBackground,
+        modifier = Modifier.fillMaxSize(),
+        contentWindowInsets = WindowInsets(0, 0, 0, 0)
+    ) { padding ->
 
         Column(
             modifier = Modifier
@@ -71,7 +77,10 @@ fun TelaProdutos(viewModel: ProdutoViewModel = hiltViewModel(), onGerenciar: () 
                 .verticalScroll(rememberScrollState())
                 .padding(padding)
                 .padding(16.dp)
-                .navigationBarsPadding()
+                .padding(horizontal = 8.dp)
+                .windowInsetsPadding(WindowInsets.navigationBars)
+                .statusBarsPadding()
+
         ) {
 
             Card(
@@ -88,8 +97,8 @@ fun TelaProdutos(viewModel: ProdutoViewModel = hiltViewModel(), onGerenciar: () 
                         placeholder = { Text("Produto") },
                         modifier = Modifier.fillMaxWidth(),
                         colors = TextFieldDefaults.colors(
-                            focusedContainerColor = MaterialTheme.colorScheme.surfaceVariant,
-                            unfocusedContainerColor = MaterialTheme.colorScheme.surfaceVariant
+                            focusedContainerColor = MaterialTheme.colorScheme.onBackground,
+                            unfocusedContainerColor = MaterialTheme.colorScheme.onBackground
                         ),
                         textStyle = TextStyle(color = MaterialTheme.colorScheme.primary)
                     )
@@ -103,8 +112,8 @@ fun TelaProdutos(viewModel: ProdutoViewModel = hiltViewModel(), onGerenciar: () 
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                         modifier = Modifier.fillMaxWidth(),
                         colors = TextFieldDefaults.colors(
-                            focusedContainerColor = MaterialTheme.colorScheme.surfaceVariant,
-                            unfocusedContainerColor = MaterialTheme.colorScheme.surfaceVariant
+                            focusedContainerColor = MaterialTheme.colorScheme.onBackground,
+                            unfocusedContainerColor = MaterialTheme.colorScheme.onBackground
                         ),
                         textStyle = TextStyle(color = MaterialTheme.colorScheme.primary)
                     )
@@ -118,8 +127,8 @@ fun TelaProdutos(viewModel: ProdutoViewModel = hiltViewModel(), onGerenciar: () 
                         keyboardOptions = KeyboardOptions(keyboardType = KeyboardType.Number),
                         modifier = Modifier.fillMaxWidth(),
                         colors = TextFieldDefaults.colors(
-                            focusedContainerColor = MaterialTheme.colorScheme.surfaceVariant,
-                            unfocusedContainerColor = MaterialTheme.colorScheme.surfaceVariant
+                            focusedContainerColor = MaterialTheme.colorScheme.onBackground,
+                            unfocusedContainerColor = MaterialTheme.colorScheme.onBackground
                         ),
                         textStyle = TextStyle(color = MaterialTheme.colorScheme.primary)
                     )
@@ -164,5 +173,6 @@ fun TelaProdutos(viewModel: ProdutoViewModel = hiltViewModel(), onGerenciar: () 
                 Text("Gerenciar Itens")
             }
         }
+
     }
 }
