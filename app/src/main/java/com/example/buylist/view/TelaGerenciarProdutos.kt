@@ -96,7 +96,7 @@ fun TelaGerenciarProdutos(onVoltar: () -> Unit, viewModel: ProdutoViewModel = hi
                     .weight(1f),
                 contentPadding = PaddingValues(bottom = 16.dp)
             ) {
-                items(produtos) { produto ->
+                items(produtos.sortedBy{ it.nome.lowercase() }) { produto ->
                     Card(
                         modifier = Modifier
                             .fillMaxWidth()
