@@ -21,7 +21,30 @@
 
 ---
 
-## Telas
+# Buy-List
+
+Buy-List is an Android application developed in Kotlin that allows users to record and calculate expenses during their purchases, facilitating practical and efficient financial control.
+
+---
+
+## Features
+
+- Item Recording: Add products to your shopping list with name, price, and quantity.
+- Automatic Calculation: The application automatically calculates the total spent based on the items added.
+- Intuitive Interface: Simple and easy-to-use design, providing a pleasant experience.
+
+---
+
+## Technologies Used
+
+- Kotlin: The main language for Android development.
+- Android SDK: Tools and libraries for Android development.
+- Room Database: Local storage for persistent data.
+- RecyclerView: Efficient display of data lists.
+
+---
+
+## Telas / Screen
 
 <div style="display: flex; gap: 500px;">
   <img src="https://github.com/user-attachments/assets/afde1bf1-2f9b-409c-aa58-5212583c593a" width="350"/>
