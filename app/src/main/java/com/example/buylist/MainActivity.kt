@@ -3,13 +3,14 @@ package com.example.buylist
 import android.os.Bundle
 import androidx.activity.ComponentActivity
 import androidx.activity.compose.setContent
-import androidx.activity.enableEdgeToEdge
 import androidx.compose.runtime.Composable
+import androidx.core.view.WindowCompat
 import androidx.hilt.navigation.compose.hiltViewModel
 import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import com.example.buylist.ui.theme.CustomColor
+import com.example.buylist.ui.theme.system.SetupSystemBars
 import com.example.buylist.view.TelaGerenciarProdutos
 import com.example.buylist.view.TelaProdutos
 import com.example.buylist.viewmodel.ProdutoViewModel
@@ -20,9 +21,10 @@ class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-        enableEdgeToEdge()
+        WindowCompat.setDecorFitsSystemWindows(window, false)
         setContent {
             CustomColor {
+                SetupSystemBars()
                 AppNavigation()
             }
         }
