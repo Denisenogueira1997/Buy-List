@@ -21,6 +21,9 @@ fun SetupSystemBars() {
         WindowInsetsControllerCompat(
             window,
             view
-        ).isAppearanceLightStatusBars = false
+        ).apply {
+            isAppearanceLightStatusBars = false
+            isAppearanceLightNavigationBars = false
+        }
     }
 }
