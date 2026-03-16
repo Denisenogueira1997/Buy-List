@@ -9,7 +9,7 @@ data class Produto(
     @PrimaryKey(autoGenerate = true) val id: Int = 0,
     val nome: String,
     val preco: Double,
-    var quantidade: Int = 1
+    var quantidade: Int
 
 ) {
 
